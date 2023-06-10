@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Execução de Algoritmo</title>
+    <script>
+        function executarAlgoritmo() {
+            // Obter a massa inicial do material radioativo
+            var massaI = parseFloat(document.getElementById("massaInicial").value);
+
+            // Calcular a massa final e o tempo decorrido
+            var massaF = massaI;
+            var tempo = 0;
+            while (massaF >= 0.5) {
+                massaF /= 2;
+                tempo += 50;
+            }
+
+            // Converter o tempo em horas, minutos e segundos
+            var segundos = tempo;
+            var minutos = Math.floor(segundos / 60);
+            segundos %= 60;
+            var horas = Math.floor(minutos / 60);
+            minutos %= 60;
+
+            // Exibir os resultados
+            var resultado = "Massa inicial (em gramas): " + massaI + "<br>";
+            resultado += "Massa final (em gramas): " + massaF + "<br>";
+            resultado += "Tempo decorrido em segundos: " + tempo + "<br>";
+            resultado += horas + " horas, " + minutos + " minutos e " + segundos + " segundos";
+
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+    </script>
+</head>
+<body>
+    <h1>Execução de Algoritmo</h1>
+    <label for="massaInicial">Massa Inicial (em gramas):</label>
+    <input type="number" id="massaInicial">
+    <br>
+    <button onclick="executarAlgoritmo()">Executar</button>
+    <br>
+    <div id="resultado"></div>
+</body>
+</html>
